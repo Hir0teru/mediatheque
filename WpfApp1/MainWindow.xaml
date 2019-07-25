@@ -3,12 +3,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Title="ImageControlCodeBehindSample" Height="300" Width="400">
+        xmlns:eo="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        mc:Ignorable="d"
+    Title="ImageControlCodeBehindSample" Height="342.857" Width="614.286">
     <StackPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
-            <Button Name="btnLoadFromFile" Margin="0,0,20,0" Click="BtnLoadFromFile_Click">Load from File...</Button>
-            <Button Name="btnLoadFromResource" Click="BtnLoadFromResource_Click">Load from Resource</Button>
+            <eo:ListBox x:Name="ListMedia" Width="150" HorizontalAlignment="Left" SelectionMode="Multiple" Height="120"/>
+
+            <eo:ListBox x:Name="ListProperties" Width="150" HorizontalAlignment="Left" SelectionMode="Multiple" Height="120"/>
+        </WrapPanel>
+        <WrapPanel Margin="10" HorizontalAlignment="Center">
+            <Button Name="btnAddMedia" Margin="0,0,20,0" Click="BtnAddMedia_Click">Add media</Button>
+            <Button Name="btnDelMedia" Click="BtnDelMedia_Click">Delete Media</Button>
         </WrapPanel>
         <Image Name="imgDynamic" Margin="10"  />
     </StackPanel>

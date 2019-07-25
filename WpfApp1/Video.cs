@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MetadataExtractor;
+using System;
+using System.Collections.Generic;
 
 public class Video
 {
@@ -6,14 +8,14 @@ public class Video
 
 	public Video(string path) : base(path)
 	{
-        Enumerable<Directory> directories = ImageMetadataReader.ReadMetadata(path);
+        IEnumerable<Directory> directories = ImageMetadataReader.ReadMetadata(path);
         foreach (var directory in directories)
         {
             foreach (var tag in directory.Tags)
             {
                 ///System.Diagnostics.Debug.WriteLine($"[{directory.Name}] {tag.Name} = {tag.Description}");
                 if (string.Equals(directory.Name, "QuickTime Movie Header") && string.Equals(tag.Name, "Duration"))
-                    dutation = tag.Description;
+                    duration = tag.Description;
             }
 
             if (directory.HasError)

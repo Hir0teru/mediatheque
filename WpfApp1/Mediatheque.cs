@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class Mediatheque
 {
@@ -12,7 +13,7 @@ public class Mediatheque
 
     public void addMedia(Media media)
     {
-        medias.add(media);
+        medias.Add(media);
     }
 
     public void removeMedia(int index)

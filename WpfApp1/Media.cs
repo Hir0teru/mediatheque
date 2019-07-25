@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MetadataExtractor;
+using System;
+using System.Collections.Generic;
+
 public class Media
 {
     private string path = string.Empty;
@@ -9,7 +12,7 @@ public class Media
 
 	public Media(string path)
 	{
-        self.path = path;
+        this.path = path;
         IEnumerable<Directory> directories = ImageMetadataReader.ReadMetadata(path);
         foreach (var directory in directories)
         {
