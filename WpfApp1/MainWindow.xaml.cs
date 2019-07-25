@@ -33,13 +33,15 @@ namespace WpfApp1
 
         private void BtnLoadFromFile_Click(object sender, RoutedEventArgs e)
         {
+            //Mediatheque media = new Mediatheque();
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
                 Uri fileUri = new Uri(openFileDialog.FileName);
-                imgDynamic.Source = new BitmapImage(fileUri);
+                ///imgDynamic.Source = new BitmapImage(fileUri);
 
-                BitmapImage test = new BitmapImage(fileUri);
+                ///BitmapImage test = new BitmapImage(fileUri);
 
                 ///MessageBox.Show(imgDynamic.Source.Metadata.ToString());
 
@@ -50,14 +52,14 @@ namespace WpfApp1
                 {
                     foreach (var tag in directory.Tags)
                     {
-                        ///System.Diagnostics.Debug.WriteLine($"[{directory.Name}] {tag.Name} = {tag.Description}");
-                        foreach (string x in wantedMetadata)
-                        {
-                            if (string.Equals(tag.Name, x))
-                            {
-                                System.Diagnostics.Debug.WriteLine($"{tag.Name} = {tag.Description}");
-                            }
-                        }
+                        System.Diagnostics.Debug.WriteLine($"[{directory.Name}] {tag.Name} = {tag.Description}");
+                        ///foreach (string x in wantedMetadata)
+                        ///{
+                           /// if (string.Equals(tag.Name, x))
+                           /// {
+                           ///     System.Diagnostics.Debug.WriteLine($"{tag.Name} = {tag.Description}");
+                           /// }
+                      ///  }
                     }
 
                     if (directory.HasError)
