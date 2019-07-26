@@ -8,9 +8,9 @@
     Title="ImageControlCodeBehindSample" Height="342.857" Width="614.286">
     <StackPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
-            <eo:ListBox x:Name="ListMedia" Width="150" HorizontalAlignment="Left" SelectionMode="Multiple" Height="120"/>
+            <eo:ListBox x:Name="listMedia" Width="150" HorizontalAlignment="Left" Height="120" SelectionChanged="listMedia_SelectionChanged" SelectionMode="Single"/>
 
-            <eo:ListBox x:Name="ListProperties" Width="150" HorizontalAlignment="Left" SelectionMode="Multiple" Height="120"/>
+            <eo:ListBox x:Name="listProperties" Width="150" HorizontalAlignment="Left" SelectionMode="Multiple" Height="120"/>
         </WrapPanel>
         <WrapPanel Margin="10" HorizontalAlignment="Center">
             <Button Name="btnAddMedia" Margin="0,0,20,0" Click="BtnAddMedia_Click">Add media</Button>

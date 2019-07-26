@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-public class Video
+public class Video : Media
 {
     private string duration = string.Empty;
 

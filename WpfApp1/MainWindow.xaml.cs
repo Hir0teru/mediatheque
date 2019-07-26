@@ -27,6 +27,7 @@ namespace WpfApp1
     {
         Mediatheque mediat = new Mediatheque();
 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,20 +41,44 @@ namespace WpfApp1
             if (openFileDialog.ShowDialog() == true)
             {
                 Uri fileUri = new Uri(openFileDialog.FileName);
-
+                Media newMedia = new Media(openFileDialog.FileName);
+                mediat.addMedia(newMedia);
             }
+
+            listMedia.Items.Clear();
 
             foreach (var media in mediat.getMedias())
             {
-                ListMedia.Items.Add(media.getFileName());
+                listMedia.Items.Add(media.getFileName());
             }
 
         }
 
+        private void listMedia_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (listMedia.SelectedItem != null)
+            {
+                listProperties.Items.Clear();
+                Media selected_media = mediat.getMedias()[listMedia.SelectedIndex];
+                listProperties.Items.Add(selected_media.getFileName());
+                listProperties.Items.Add(selected_media.getSize());
+                listProperties.Items.Add(selected_media.getDetectedFileTypeName ());
+                listProperties.Items.Add(selected_media.getFileModifiedDate());
+            }
+        }
+
         private void BtnDelMedia_Click(object sender, RoutedEventArgs e)
         {
-            Uri resourceUri = new Uri("/Images/white_bengal_tiger.jpg", UriKind.Relative);
-            imgDynamic.Source = new BitmapImage(resourceUri);
+            if (listMedia.SelectedItem != null)
+            {
+                mediat.removeMedia(listMedia.SelectedIndex);
+                listMedia.Items.Clear();
+
+                foreach (var media in mediat.getMedias())
+                {
+                    listMedia.Items.Add(media.getFileName());
+                }
+            }
         }
     }
 }
